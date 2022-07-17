@@ -1,0 +1,70 @@
+server:
+  port: 8090
+  max-http-header-size: 65536
+
+spring:
+  restclient:
+    connect-timeout: 60000
+    read-timeout: 60000
+
+  main:
+    allow-bean-definition-overriding: true
+
+  data:
+    elasticsearch:
+      host: localhost
+      port: 9200
+      username:
+      password:
+      ssl-enabled: false
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  jmx:
+    default-domain: 
+
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+  signing-key: MaYzkSjmkzPC57L
+  encoding-strength: 256
+  jwt:
+    client-id: dev
+    client-secret: dev
+    resource-ids: id
+    token-url: http://localhost:8090/api/v1/oauth/token
+
+web:
+  directory: http://localhost
+
+api:
+  fulfillment:
+    endpoint: http://localhost
+
+general-setting:
+  default-time-zone: America/Bogota
+
+cloud:
+  aws:
+    region:
+      static: us-east-1
+#      auto: false
+    stack:
+      auto: false
+    credentials:
+      instanceProfile: false
+
+queue:
+  commercial-condition: 
+  price-percent-discount: 
+
+rate-limit:
+  capacity: 120
+  tokens: 120
+
+app:
+  version: "@project.version@"
